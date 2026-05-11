@@ -43,3 +43,21 @@ if(form) {
         }, 1500);
     });
 }
+const audio = document.getElementById('myAudio');
+const btn = document.getElementById('playBtn');
+
+btn.addEventListener('click', () => {
+    if (audio.paused) {
+        // Tambahkan fungsi play() yang menangani error
+        audio.play().then(() => {
+            console.log("Musik diputar!");
+            btn.innerText = "Pause Music ⏸️";
+        }).catch(error => {
+            console.error("Gagal putar musik:", error);
+            alert("File musik tidak ditemukan atau format tidak didukung!");
+        });
+    } else {
+        audio.pause();
+        btn.innerText = "Play Music 🎵";
+    }
+});
