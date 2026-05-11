@@ -97,3 +97,53 @@ body {
 .skill-item:hover .w-full {
     background: rgba(255, 255, 255, 0.1);
 }
+/* Container untuk tombol musik agar tetap melayang di pojok */
+.music-container {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 100;
+}
+
+/* Styling Tombol Toggle Musik */
+.btn-musik {
+    background: rgba(255, 255, 255, 0.05); /* Transparansi tipis */
+    backdrop-filter: blur(10px); /* Efek blur kaca */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px border rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Efek saat tombol di-hover */
+.btn-musik:hover {
+    background: rgba(6, 182, 212, 0.2); /* Warna cyan transparan */
+    border-color: #06b6d4;
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+}
+
+/* Animasi sederhana saat musik menyala (opsional) */
+.playing {
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 5px rgba(6, 182, 212, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.6); }
+    100% { box-shadow: 0 0 5px rgba(6, 182, 212, 0.2); }
+}
+
+/* Menyembunyikan audio player asli agar tidak merusak desain */
+audio {
+    display: none;
+}
